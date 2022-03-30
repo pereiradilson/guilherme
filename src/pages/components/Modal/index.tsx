@@ -5,8 +5,8 @@ import { Dialog, Transition } from "@headlessui/react";
 interface ModalProps {
   path: string;
   typeVideo: string | undefined;
-  show: true | false;
-  setShow: (show: boolean) => void;
+  showModal: boolean;
+  setShowModal: (show: boolean) => void;
 }
 
 export default function Modal(props: ModalProps) {
@@ -61,12 +61,12 @@ export default function Modal(props: ModalProps) {
   }
 
   return (
-    <Transition.Root show={props.show} as={Fragment}>
+    <Transition.Root show={props.showModal} as={Fragment}>
       <Dialog
         as="div"
         className="fixed z-10 inset-0 overflow-y-auto"
         initialFocus={cancelButtonRef}
-        onClose={() => props.setShow(false)}
+        onClose={() => props.setShowModal(false)}
       >
         <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <Transition.Child

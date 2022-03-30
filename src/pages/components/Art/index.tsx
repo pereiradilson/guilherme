@@ -28,8 +28,8 @@ export default function Art(props: ArtPros) {
       <Modal
         path={props.src}
         typeVideo={props.type}
-        show={open}
-        setShow={setOpen}
+        showModal={open}
+        setShowModal={setOpen}
       />
     </>
   );

@@ -28,8 +28,8 @@ export default function Video(props: VideoProps) {
       <Modal
         path={props.videoUrl}
         typeVideo={props.typeVideo}
-        show={open}
-        setShow={setOpen}
+        showModal={open}
+        setShowModal={setOpen}
       />
     </>
   );
