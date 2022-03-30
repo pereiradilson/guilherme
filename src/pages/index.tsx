@@ -9,7 +9,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Guilherme</title>
+        <title>Guiplay | Editor Audiovisual</title>
       </Head>
 
       <Header />

@@ -10,8 +10,10 @@ export default function Footer() {
               <p className="text-white text-2xl mb-5 font-semibold font-sans">
                 Contato
               </p>
-              <p className="text-white text-sm font-sans">(31) 99999-9999</p>
-              <p className="text-white text-sm font-sans">gass18@gmail.com</p>
+              <p className="text-white text-sm font-sans">(31)992985315</p>
+              <p className="text-white text-sm font-sans">
+                guiplayaudiovisual@gmail.com
+              </p>
             </div>
             <div className="flex flex-col items-center">
               <p className="text-white text-2xl mb-5 font-sans font-semibold">
@@ -19,25 +21,28 @@ export default function Footer() {
               </p>
               <div className="flex flex-row justify-between gap-2">
                 <SocialIcon
-                  url="https://www.facebook.com/"
+                  url="https://www.facebook.com/guiplayaudiovisual/"
                   fgColor="#FFF"
                   target="_blank"
-                  className=""
+                  title="Facebook"
                 />
                 <SocialIcon
-                  url="https://www.twitter.com/"
+                  url="https://twitter.com/GuiPlay85334705"
                   fgColor="#FFF"
                   target="_blank"
+                  title="Twitter"
                 />
                 <SocialIcon
-                  url="https://www.instagram.com/"
+                  url="https://www.instagram.com/guiplayaudiovisual/"
                   fgColor="#FFF"
                   target="_blank"
+                  title="Instagram"
                 />
                 <SocialIcon
-                  url="https://www.youtube.com/"
+                  url="https://www.youtube.com/channel/UC-jNjCy6ESNdaAkSGoEhb2g"
                   fgColor="#FFF"
                   target="_blank"
+                  title="Youtube"
                 />
               </div>
             </div>
