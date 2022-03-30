@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Profile() {
   return (
-    <div className="container mx-auto pb-10">
+    <div className="px-3 md:px-0 container mx-auto pb-10">
       <div className="mt-5 p-5 flex flex-col md:flex-row bg-gray-200 rounded-[50px] justify-between items-center">
         <div className="mx-10">
           <Image
