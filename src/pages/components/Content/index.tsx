@@ -17,19 +17,19 @@ export default function Content() {
           </div>
         </div>
 
-        <div className="text-blue-900 text-2xl font-semibold mt-5 pl-10 font-sans">
+        <div className="text-blue-900 text-xl md:text-2xl font-semibold mt-5 pl-10 font-sans">
           Alguns dos meus vídeos editados...
         </div>
 
         <Videos />
 
-        <div className="text-blue-900 text-2xl font-semibold mt-5 pl-10 mt-10 font-sans">
+        <div className="text-blue-900 text-xl md:text-2xl font-semibold mt-5 pl-10 mt-10 font-sans">
           Artes visuais para social mídias...
         </div>
 
         <Arts />
 
-        <div className="text-blue-900 text-2xl font-semibold mt-5 pl-10 mt-10 font-sans">
+        <div className="text-blue-900 text-xl md:text-2xl font-semibold mt-5 pl-10 mt-10 font-sans">
           Quem é o <span className="font-bold">Guilherme Augusto?</span>
         </div>
 

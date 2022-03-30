@@ -2,7 +2,7 @@ import Video from "../Video";
 
 export default function Videos() {
   return (
-    <div className="pt-3 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-3">
+    <div className="p-3 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-3">
       <Video
         src="image-1.jpg"
         videoUrl="https://www.youtube.com/embed/m8oig717Ixg"
