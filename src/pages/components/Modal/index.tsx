@@ -61,7 +61,7 @@ export default function Modal(props: ModalProps) {
   }
 
   return (
-    <Transition.Root show={props.showModal} as={Fragment}>
+    <Transition.Root show={props.showModal || false} as={Fragment}>
       <Dialog
         as="div"
         className="fixed z-10 inset-0 overflow-y-auto"
