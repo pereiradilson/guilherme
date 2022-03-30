@@ -5,7 +5,7 @@ import { Dialog, Transition } from "@headlessui/react";
 interface ModalProps {
   path: string;
   typeVideo: string | undefined;
-  show: boolean;
+  show: true | false;
   setShow: (show: boolean) => void;
 }
 
