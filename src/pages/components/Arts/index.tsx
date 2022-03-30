@@ -19,8 +19,6 @@ export default function Arts() {
       <Art src="image-2.jpg" alt="Imagem 2" type="photo" />
       <Art src="image-3.jpg" alt="Imagem 3" type="photo" />
       <Art src="image-1.jpg" alt="Imagem 1" type="photo" />
-      <Art src="image-2.jpg" alt="Imagem 2" type="photo" />
-      <Art src="image-3.jpg" alt="Imagem 3" type="photo" />
     </div>
   );
 }
