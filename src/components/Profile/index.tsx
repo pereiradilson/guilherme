@@ -15,7 +15,7 @@ export default function Profile() {
         </div>
         <p className="m-5 text-gray-600 text-[20px] md:text-[25px] text-justify font-sans">
           Guilherme Augusto é Designer Gráfico, mora em Belo Horizonte e
-          atualmente cursa Marketing Digital, mas desde 2011, trabalha com
+          atualmente cursa Marketing Digital, mas desde 2011 trabalha com
           audiovisual. Apaixonado pela criação e animação, resolveu se aventurar
           participando com as histórias dos seus clientes. Já trabalhou em
           várias empresas de Belo Horizonte na área de educação, tais como:
