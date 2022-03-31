@@ -14,13 +14,13 @@ export default function Profile() {
           />
         </div>
         <p className="m-5 text-gray-600 text-[20px] md:text-[25px] text-justify font-sans">
-          Guilherme Augusto tem 30 anos, Designer Gráfico mora em Belo Horizonte
-          atualmente cursa Marketing Digital. Desde 2011 trabalha com
+          Guilherme Augusto é Designer Gráfico, mora em Belo Horizonte e
+          atualmente cursa Marketing Digital, mas desde 2011, trabalha com
           audiovisual. Apaixonado pela criação e animação, resolveu se aventurar
-          participando com histórias de seus clientes. Já trabalhou em varias
-          empresas de Belo Horizonte na área de educação, tais como: Pró-labore,
-          Mega Concursos, DPC Cursos Jurídicos, ESA / OAB-MG. Hoje é sócio da
-          Ival Cursos Online.
+          participando com as histórias dos seus clientes. Já trabalhou em
+          várias empresas de Belo Horizonte na área de educação, tais como:
+          Pró-labore, Mega Concursos, DPC Cursos Jurídicos, ESA / OAB-MG. Hoje é
+          sócio da Ival Cursos Online.
         </p>
       </div>
     </div>
