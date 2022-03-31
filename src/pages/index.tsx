@@ -5,9 +5,9 @@ import Prismic from "@prismicio/client";
 import { getPrismicClient } from "../services/prismic";
 import { RichText } from "prismic-dom";
 
-import Header from "./components/Header";
-import Content from "./components/Content";
-import Footer from "./components/Footer";
+import Header from "../components/Header";
+import Content from "../components/Content";
+import Footer from "../components/Footer";
 
 type Video = {
   id: string;
