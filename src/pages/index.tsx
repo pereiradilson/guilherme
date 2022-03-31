@@ -93,6 +93,6 @@ export const getStaticProps: GetStaticProps = async () => {
       videos,
       arts,
     },
-    // revalidate: 60 * 60 * 24,
+    revalidate: 60,
   };
 };
