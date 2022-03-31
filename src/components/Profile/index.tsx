@@ -6,10 +6,10 @@ export default function Profile() {
       <div className="mt-5 p-5 flex flex-col md:flex-row bg-gray-200 rounded-[50px] justify-between items-center">
         <div className="mx-10">
           <Image
-            src="/profile-image.png"
-            width="937"
-            height="939"
-            alt="Guilherme"
+            src="/foto-perfil-novo.png"
+            width="940"
+            height="940"
+            alt="Guilherme Augusto"
             className="rounded-full object-contain md:object-scale-down"
           />
         </div>
