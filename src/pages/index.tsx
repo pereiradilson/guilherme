@@ -2,7 +2,7 @@ import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 
 import Prismic from "@prismicio/client";
-import { getPrismicClient } from "./services/prismic";
+import { getPrismicClient } from "../services/prismic";
 import { RichText } from "prismic-dom";
 
 import Header from "./components/Header";
