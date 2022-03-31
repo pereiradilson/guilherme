@@ -1,68 +1,29 @@
 import Video from "../Video";
 
-export default function Videos() {
+type typeVideo = {
+  id: string;
+  image: string;
+  description: string;
+  videoUrl: string;
+  typeVideo: string;
+};
+
+interface VideosProps {
+  videos: typeVideo[];
+}
+
+export default function Videos({ videos }: VideosProps) {
   return (
     <div className="p-3 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-3">
-      <Video
-        src="image-1.jpg"
-        videoUrl="https://www.youtube.com/embed/m8oig717Ixg"
-        typeVideo="youtube"
-      />
-      <Video
-        src="image-2.jpg"
-        videoUrl="https://player.vimeo.com/video/15437192?h=cb206d8c83"
-        typeVideo="vimeo"
-      />
-      <Video
-        src="image-1.jpg"
-        videoUrl="https://www.youtube.com/embed/m8oig717Ixg"
-        typeVideo="youtube"
-      />
-      <Video
-        src="image-2.jpg"
-        videoUrl="https://player.vimeo.com/video/15437192?h=cb206d8c83"
-        typeVideo="vimeo"
-      />
-      <Video
-        src="image-1.jpg"
-        videoUrl="https://www.youtube.com/embed/m8oig717Ixg"
-        typeVideo="youtube"
-      />
-      <Video
-        src="image-2.jpg"
-        videoUrl="https://player.vimeo.com/video/15437192?h=cb206d8c83"
-        typeVideo="vimeo"
-      />
-      <Video
-        src="image-1.jpg"
-        videoUrl="https://www.youtube.com/embed/m8oig717Ixg"
-        typeVideo="youtube"
-      />
-      <Video
-        src="image-2.jpg"
-        videoUrl="https://player.vimeo.com/video/15437192?h=cb206d8c83"
-        typeVideo="vimeo"
-      />
-      <Video
-        src="image-1.jpg"
-        videoUrl="https://www.youtube.com/embed/m8oig717Ixg"
-        typeVideo="youtube"
-      />
-      <Video
-        src="image-2.jpg"
-        videoUrl="https://player.vimeo.com/video/15437192?h=cb206d8c83"
-        typeVideo="vimeo"
-      />
-      <Video
-        src="image-1.jpg"
-        videoUrl="https://www.youtube.com/embed/m8oig717Ixg"
-        typeVideo="youtube"
-      />
-      <Video
-        src="image-2.jpg"
-        videoUrl="https://player.vimeo.com/video/15437192?h=cb206d8c83"
-        typeVideo="vimeo"
-      />
+      {videos.map((value) => (
+        <Video
+          key={value.id}
+          src={value.image}
+          videoUrl={value.videoUrl}
+          typeVideo={value.typeVideo}
+          alt={value.description}
+        />
+      ))}
     </div>
   );
 }

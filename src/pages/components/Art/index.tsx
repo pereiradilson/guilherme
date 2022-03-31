@@ -5,8 +5,7 @@ import Modal from "../Modal";
 
 interface ArtPros {
   src: string;
-  alt?: string;
-  type?: string;
+  alt: string;
 }
 
 export default function Art(props: ArtPros) {
@@ -17,8 +16,8 @@ export default function Art(props: ArtPros) {
       <div className="overflow-hidden">
         <Image
           className="rounded-lg cursor-pointer"
-          src={`/${props.src}`}
-          alt={`/${props.alt}`}
+          src={props.src}
+          alt={props.alt}
           width="320"
           height="213"
           onClick={() => setOpen(true)}
@@ -27,7 +26,8 @@ export default function Art(props: ArtPros) {
 
       <Modal
         path={props.src}
-        typeVideo={props.type}
+        typeModal="photo"
+        description={props.alt}
         showModal={open}
         setShowModal={setOpen}
       />

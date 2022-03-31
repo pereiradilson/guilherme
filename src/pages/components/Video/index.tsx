@@ -17,8 +17,8 @@ export default function Video(props: VideoProps) {
       <div className="overflow-hidden">
         <Image
           className="rounded-lg cursor-pointer"
-          src={`/${props.src}`}
-          alt={`/${props.alt}`}
+          src={props.src}
+          alt={props.alt}
           width="640"
           height="427"
           onClick={() => setOpen(true)}
@@ -27,7 +27,7 @@ export default function Video(props: VideoProps) {
 
       <Modal
         path={props.videoUrl}
-        typeVideo={props.typeVideo}
+        typeModal={props.typeVideo}
         showModal={open}
         setShowModal={setOpen}
       />

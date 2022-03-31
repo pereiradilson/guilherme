@@ -1,24 +1,21 @@
 import Art from "../Art";
 
-export default function Arts() {
+type typeArt = {
+  id: string;
+  description: string;
+  image: string;
+};
+
+interface ArtsProps {
+  arts: typeArt[];
+}
+
+export default function Arts({ arts }: ArtsProps) {
   return (
     <div className="p-3 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-8 lg:grid-cols-8 xl:grid-cols-8 gap-2">
-      <Art src="image-1.jpg" alt="Imagem 1" type="photo" />
-      <Art src="image-2.jpg" alt="Imagem 2" type="photo" />
-      <Art src="image-3.jpg" alt="Imagem 3" type="photo" />
-      <Art src="image-1.jpg" alt="Imagem 1" type="photo" />
-      <Art src="image-2.jpg" alt="Imagem 2" type="photo" />
-      <Art src="image-3.jpg" alt="Imagem 3" type="photo" />
-      <Art src="image-1.jpg" alt="Imagem 1" type="photo" />
-      <Art src="image-2.jpg" alt="Imagem 2" type="photo" />
-      <Art src="image-3.jpg" alt="Imagem 3" type="photo" />
-      <Art src="image-1.jpg" alt="Imagem 1" type="photo" />
-      <Art src="image-2.jpg" alt="Imagem 2" type="photo" />
-      <Art src="image-3.jpg" alt="Imagem 3" type="photo" />
-      <Art src="image-1.jpg" alt="Imagem 1" type="photo" />
-      <Art src="image-2.jpg" alt="Imagem 2" type="photo" />
-      <Art src="image-3.jpg" alt="Imagem 3" type="photo" />
-      <Art src="image-1.jpg" alt="Imagem 1" type="photo" />
+      {arts.map((value) => (
+        <Art key={value.id} src={value.image} alt={value.description} />
+      ))}
     </div>
   );
 }

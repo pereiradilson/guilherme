@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { SocialIcon } from "react-social-icons";
 
 export default function Footer() {
@@ -19,10 +20,14 @@ export default function Footer() {
                 Contato
               </p>
               <p className="text-white text-sm font-sans text-center md:text-left">
-                (31)992985315
+                <Link href="https://api.whatsapp.com/send?phone=+553192985315">
+                  <a target="_blank">(31)992985315</a>
+                </Link>
               </p>
               <p className="text-white text-sm font-sans text-center md:text-left">
-                guiplayaudiovisual@gmail.com
+                <Link href="mailto:guiplayaudiovisual@gmail.com">
+                  <a target="_blank">guiplayaudiovisual@gmail.com</a>
+                </Link>
               </p>
             </div>
             <div className="flex flex-col items-center">
