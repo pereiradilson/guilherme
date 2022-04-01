@@ -23,12 +23,24 @@ type Art = {
   image: string;
 };
 
+type Info = {
+  image: string;
+  profile: string;
+  whatsapp: string;
+  email: string;
+  facebook: string;
+  twitter: string;
+  instagram: string;
+  youtube: string;
+};
+
 interface HomeProps {
   videos: Video[];
   arts: Art[];
+  info: Info;
 }
 
-export default function Home({ videos, arts }: HomeProps) {
+export default function Home({ videos, arts, info }: HomeProps) {
   return (
     <>
       <Head>
@@ -37,9 +49,9 @@ export default function Home({ videos, arts }: HomeProps) {
 
       <Header />
 
-      <Content videos={videos} arts={arts} />
+      <Content videos={videos} arts={arts} info={info} />
 
-      <Footer />
+      <Footer info={info} />
     </>
   );
 }
@@ -88,10 +100,40 @@ export const getStaticProps: GetStaticProps = async () => {
     };
   });
 
+  const responseInfo = await prismic.query(
+    [Prismic.predicates.at("document.type", "info")],
+    {
+      fetch: [
+        "info.image",
+        "info.profile",
+        "info.whatsapp",
+        "info.email",
+        "info.facebook",
+        "info.twitter",
+        "info.instagram",
+        "info.youtube",
+      ],
+      pageSize: 1,
+      orderings: "[document.first_publication_date]",
+    }
+  );
+
+  const info = {
+    image: responseInfo.results[0].data.image.url,
+    profile: RichText.asText(responseInfo.results[0].data.profile),
+    whatsapp: RichText.asText(responseInfo.results[0].data.whatsapp),
+    email: RichText.asText(responseInfo.results[0].data.email),
+    facebook: RichText.asText(responseInfo.results[0].data.facebook),
+    twitter: RichText.asText(responseInfo.results[0].data.twitter),
+    instagram: RichText.asText(responseInfo.results[0].data.instagram),
+    youtube: RichText.asText(responseInfo.results[0].data.youtube),
+  };
+
   return {
     props: {
       videos,
       arts,
+      info,
     },
     revalidate: 60,
   };

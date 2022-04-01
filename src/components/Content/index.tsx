@@ -18,12 +18,24 @@ type Art = {
   image: string;
 };
 
+type Info = {
+  image: string;
+  profile: string;
+  whatsapp: string;
+  email: string;
+  facebook: string;
+  twitter: string;
+  instagram: string;
+  youtube: string;
+};
+
 interface ContentProps {
   videos: Video[];
   arts: Art[];
+  info: Info;
 }
 
-export default function Content({ videos, arts }: ContentProps) {
+export default function Content({ videos, arts, info }: ContentProps) {
   return (
     <div className="bg-gray-100">
       <div className="container mx-auto">
@@ -52,7 +64,7 @@ export default function Content({ videos, arts }: ContentProps) {
           Quem é o <span className="font-bold">Guilherme Augusto?</span>
         </div>
 
-        <Profile />
+        <Profile info={info} />
       </div>
     </div>
   );

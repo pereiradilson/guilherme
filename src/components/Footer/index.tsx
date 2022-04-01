@@ -2,13 +2,32 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { SocialIcon } from "react-social-icons";
 
-export default function Footer() {
+type Info = {
+  image: string;
+  profile: string;
+  whatsapp: string;
+  email: string;
+  facebook: string;
+  twitter: string;
+  instagram: string;
+  youtube: string;
+};
+
+interface FooterProps {
+  info: Info;
+}
+
+export default function Footer({ info }: FooterProps) {
   const [currentYear, setCurrentYear] = useState("");
 
   useEffect(() => {
     const currentYear = new Date().getFullYear();
     setCurrentYear(currentYear.toString());
   }, []);
+
+  function formatWhatsAppNumber() {
+    return info.whatsapp.replace(/\D/g, "");
+  }
 
   return (
     <>
@@ -20,13 +39,15 @@ export default function Footer() {
                 Contato
               </p>
               <p className="text-white text-sm font-sans text-center md:text-left">
-                <Link href="https://api.whatsapp.com/send?phone=+553192985315">
-                  <a target="_blank">(31)992985315</a>
+                <Link
+                  href={`https://api.whatsapp.com/send?phone=+55${formatWhatsAppNumber()}`}
+                >
+                  <a target="_blank">{info.whatsapp}</a>
                 </Link>
               </p>
               <p className="text-white text-sm font-sans text-center md:text-left">
-                <Link href="mailto:guiplayaudiovisual@gmail.com">
-                  <a target="_blank">guiplayaudiovisual@gmail.com</a>
+                <Link href={`mailto:${info.email}`}>
+                  <a target="_blank">{info.email}</a>
                 </Link>
               </p>
             </div>
@@ -36,25 +57,25 @@ export default function Footer() {
               </p>
               <div className="flex flex-row justify-between gap-2">
                 <SocialIcon
-                  url="https://www.facebook.com/guiplayaudiovisual/"
+                  url={info.facebook}
                   fgColor="#FFF"
                   target="_blank"
                   title="Facebook"
                 />
                 <SocialIcon
-                  url="https://twitter.com/GuiPlay85334705"
+                  url={info.twitter}
                   fgColor="#FFF"
                   target="_blank"
                   title="Twitter"
                 />
                 <SocialIcon
-                  url="https://www.instagram.com/guiplayaudiovisual/"
+                  url={info.instagram}
                   fgColor="#FFF"
                   target="_blank"
                   title="Instagram"
                 />
                 <SocialIcon
-                  url="https://www.youtube.com/channel/UC-jNjCy6ESNdaAkSGoEhb2g"
+                  url={info.youtube}
                   fgColor="#FFF"
                   target="_blank"
                   title="Youtube"
