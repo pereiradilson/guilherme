@@ -2,6 +2,7 @@ import { FiChevronDown } from "react-icons/fi";
 
 import Videos from "../Videos";
 import Arts from "../Arts";
+import Logos from "../Logos";
 import Profile from "../Profile";
 
 type Video = {
@@ -13,6 +14,12 @@ type Video = {
 };
 
 type Art = {
+  id: string;
+  description: string;
+  image: string;
+};
+
+type Logo = {
   id: string;
   description: string;
   image: string;
@@ -32,10 +39,11 @@ type Info = {
 interface ContentProps {
   videos: Video[];
   arts: Art[];
+  logos: Logo[];
   info: Info;
 }
 
-export default function Content({ videos, arts, info }: ContentProps) {
+export default function Content({ videos, arts, logos, info }: ContentProps) {
   return (
     <div className="bg-gray-100">
       <div className="container mx-auto">
@@ -59,6 +67,12 @@ export default function Content({ videos, arts, info }: ContentProps) {
         </div>
 
         <Arts arts={arts} />
+
+        <div className="text-blue-900 text-xl md:text-2xl font-semibold mt-5 pl-10 mt-10 font-sans">
+          Logomarcas personalizadas...
+        </div>
+
+        <Logos logos={logos} />
 
         <div className="text-blue-900 text-xl md:text-2xl font-semibold mt-5 pl-10 mt-10 font-sans">
           Quem é o <span className="font-bold">Guilherme Augusto?</span>

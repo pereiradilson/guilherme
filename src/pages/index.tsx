@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from "next";
+import type { GetStaticProps } from "next";
 import Head from "next/head";
 
 import Prismic from "@prismicio/client";
@@ -23,6 +23,12 @@ type Art = {
   image: string;
 };
 
+type Logo = {
+  id: string;
+  description: string;
+  image: string;
+};
+
 type Info = {
   image: string;
   profile: string;
@@ -37,10 +43,11 @@ type Info = {
 interface HomeProps {
   videos: Video[];
   arts: Art[];
+  logos: Logo[];
   info: Info;
 }
 
-export default function Home({ videos, arts, info }: HomeProps) {
+export default function Home({ videos, arts, logos, info }: HomeProps) {
   return (
     <>
       <Head>
@@ -49,7 +56,7 @@ export default function Home({ videos, arts, info }: HomeProps) {
 
       <Header />
 
-      <Content videos={videos} arts={arts} info={info} />
+      <Content videos={videos} arts={arts} logos={logos} info={info} />
 
       <Footer info={info} />
     </>
@@ -67,9 +74,10 @@ export const getStaticProps: GetStaticProps = async () => {
         "video.description",
         "video.videourl",
         "video.typevideo",
+        "video.order",
       ],
       pageSize: 100,
-      orderings: "[document.first_publication_date]",
+      orderings: "[my.video.order desc]",
     }
   );
 
@@ -86,9 +94,9 @@ export const getStaticProps: GetStaticProps = async () => {
   const responseArts = await prismic.query(
     [Prismic.predicates.at("document.type", "art")],
     {
-      fetch: ["art.uid", "art.description", "art.image"],
+      fetch: ["art.uid", "art.description", "art.image", "art.order"],
       pageSize: 100,
-      orderings: "[document.first_publication_date]",
+      orderings: "[my.art.order desc]",
     }
   );
 
@@ -97,6 +105,23 @@ export const getStaticProps: GetStaticProps = async () => {
       id: art.uid,
       description: RichText.asText(art.data.description),
       image: art.data.image.url,
+    };
+  });
+
+  const responseLogos = await prismic.query(
+    [Prismic.predicates.at("document.type", "logo")],
+    {
+      fetch: ["logo.uid", "logo.description", "logo.image", "logo.order"],
+      pageSize: 100,
+      orderings: "[my.logo.order desc]",
+    }
+  );
+
+  const logos = responseLogos.results.map((logo) => {
+    return {
+      id: logo.uid,
+      description: RichText.asText(logo.data.description),
+      image: logo.data.image.url,
     };
   });
 
@@ -133,6 +158,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       videos,
       arts,
+      logos,
       info,
     },
     revalidate: 60,
