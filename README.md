@@ -1,4 +1,4 @@
-# Quiplay - Editor Visual
+# Guiplay - Editor Audiovisual
 
 ## About
 
@@ -25,7 +25,7 @@
   # Enter folder
   $ cd guilherme
 
-  # Install dependences
+  # Install dependencies
   $ yarn
 
   #Execute
