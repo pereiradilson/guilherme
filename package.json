@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.6.1",
-    "@prismicio/client": "^6.4.3",
+    "@prismicio/client": "^4.0.0",
     "next": "12.1.6",
     "prismic-dom": "^2.2.5",
     "react": "18.1.0",
