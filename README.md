@@ -20,10 +20,10 @@
 ```bash
 
   # Clone repository
-  $ git clone https://github.com/pereiradilson/guilherme.git
+  $ git clone https://github.com/pereiradilson/guiplay.git
 
   # Enter folder
-  $ cd guilherme
+  $ cd guiplay
 
   # Install dependencies
   $ yarn
