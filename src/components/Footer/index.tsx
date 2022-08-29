@@ -40,7 +40,7 @@ export default function Footer({ info }: FooterProps) {
               </p>
               <p className="text-white text-sm font-sans text-center md:text-left">
                 <Link
-                  href={`https://api.whatsapp.com/send?phone=+55${formatWhatsAppNumber()}`}
+                  href={`https://api.whatsapp.com/send?phone=55${formatWhatsAppNumber()}`}
                 >
                   <a target="_blank">{info.whatsapp}</a>
                 </Link>
