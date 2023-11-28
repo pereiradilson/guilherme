@@ -4,6 +4,7 @@ import Videos from "../Videos";
 import Arts from "../Arts";
 import Logos from "../Logos";
 import Profile from "../Profile";
+import Landpages from "../Landpages";
 
 type Video = {
   id: string;
@@ -17,6 +18,13 @@ type Art = {
   id: string;
   description: string;
   image: string;
+};
+
+type Landpages = {
+  id: string;
+  description: string;
+  image: string;
+  link_url: string;
 };
 
 type Logo = {
@@ -41,9 +49,16 @@ interface ContentProps {
   arts: Art[];
   logos: Logo[];
   info: Info;
+  landpages: Landpages[];
 }
 
-export default function Content({ videos, arts, logos, info }: ContentProps) {
+export default function Content({
+  videos,
+  arts,
+  logos,
+  info,
+  landpages,
+}: ContentProps) {
   return (
     <div className="bg-gray-100">
       <div className="container mx-auto">
@@ -67,6 +82,12 @@ export default function Content({ videos, arts, logos, info }: ContentProps) {
         </div>
 
         <Arts arts={arts} />
+
+        <div className="text-blue-900 text-xl md:text-2xl font-semibold mt-5 pl-10 mt-10 font-sans">
+          Landpages...
+        </div>
+
+        <Landpages landpages={landpages} />
 
         <div className="text-blue-900 text-xl md:text-2xl font-semibold mt-5 pl-10 mt-10 font-sans">
           Logomarcas personalizadas...

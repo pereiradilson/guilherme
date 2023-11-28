@@ -40,13 +40,14 @@ export default function Footer({ info }: FooterProps) {
               </p>
               <p className="text-white text-sm font-sans text-center md:text-left">
                 <Link
+                  legacyBehavior
                   href={`https://api.whatsapp.com/send?phone=55${formatWhatsAppNumber()}`}
                 >
                   <a target="_blank">{info.whatsapp}</a>
                 </Link>
               </p>
               <p className="text-white text-sm font-sans text-center md:text-left">
-                <Link href={`mailto:${info.email}`}>
+                <Link legacyBehavior href={`mailto:${info.email}`}>
                   <a target="_blank">{info.email}</a>
                 </Link>
               </p>

@@ -23,6 +23,13 @@ type Art = {
   image: string;
 };
 
+type Landpage = {
+  id: string;
+  description: string;
+  image: string;
+  link_url: string;
+};
+
 type Logo = {
   id: string;
   description: string;
@@ -45,9 +52,16 @@ interface HomeProps {
   arts: Art[];
   logos: Logo[];
   info: Info;
+  landpages: Landpage[];
 }
 
-export default function Home({ videos, arts, logos, info }: HomeProps) {
+export default function Home({
+  videos,
+  arts,
+  logos,
+  info,
+  landpages,
+}: HomeProps) {
   return (
     <>
       <Head>
@@ -56,7 +70,13 @@ export default function Home({ videos, arts, logos, info }: HomeProps) {
 
       <Header />
 
-      <Content videos={videos} arts={arts} logos={logos} info={info} />
+      <Content
+        videos={videos}
+        arts={arts}
+        logos={logos}
+        info={info}
+        landpages={landpages}
+      />
 
       <Footer info={info} />
     </>
@@ -105,6 +125,30 @@ export const getStaticProps: GetStaticProps = async () => {
       id: art.uid,
       description: RichText.asText(art.data.description),
       image: art.data.image.url,
+    };
+  });
+
+  const responseLandpages = await prismic.query(
+    [Prismic.predicates.at("document.type", "landpage")],
+    {
+      fetch: [
+        "landpage.uid",
+        "landpage.description",
+        "landpage.image",
+        "landpage.order",
+        "landpage.link_url",
+      ],
+      pageSize: 100,
+      orderings: "[my.landpage.order desc]",
+    }
+  );
+
+  const landpages = responseLandpages.results.map((landpage) => {
+    return {
+      id: landpage.uid,
+      description: RichText.asText(landpage.data.description),
+      image: landpage.data.image.url,
+      link_url: landpage.data.link_url.url,
     };
   });
 
@@ -160,6 +204,7 @@ export const getStaticProps: GetStaticProps = async () => {
       arts,
       logos,
       info,
+      landpages,
     },
     revalidate: 60,
   };

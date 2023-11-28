@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Header() {
   return (
     <div className="container mx-auto flex flex-col items-center my-10">
-      <Link href="/">
+      <Link legacyBehavior href="/">
         <a>
           <Image
             src="/logo-horizontal.png"

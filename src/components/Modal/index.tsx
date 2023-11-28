@@ -1,6 +1,8 @@
 import { useState, Fragment, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Dialog, Transition } from "@headlessui/react";
+import { FiLink } from "react-icons/fi";
 
 interface ModalProps {
   path: string;
@@ -8,6 +10,7 @@ interface ModalProps {
   description?: string;
   showModal: boolean;
   setShowModal: (show: boolean) => void;
+  link_url?: string | undefined;
 }
 
 export default function Modal(props: ModalProps) {
@@ -58,6 +61,31 @@ export default function Modal(props: ModalProps) {
             </div>
           </div>
         );
+
+      case "photo_link":
+        return (
+          <div className="relative inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-screen-xl sm:w-full">
+            <div className="bg-white px-4 pt-4">
+              <Image
+                className="object-fill"
+                src={props.path}
+                width="1280"
+                height="854"
+                alt={props.description}
+              />
+            </div>
+            <div className="bg-white p-4 text-center">
+              <Link legacyBehavior href={props.link_url}>
+                <a
+                  target="_blank"
+                  className="bg-blue-900 rounded-lg py-2 px-4 focus:outline-none text-white"
+                >
+                  Visualizar Landpage
+                </a>
+              </Link>
+            </div>
+          </div>
+        );
     }
   }
 
@@ -82,7 +110,6 @@ export default function Modal(props: ModalProps) {
             <Dialog.Overlay className="fixed inset-0 bg-gray-600 bg-opacity-75 transition-opacity" />
           </Transition.Child>
 
-          {/* This element is to trick the browser into centering the modal contents. */}
           <span
             className="hidden sm:inline-block sm:align-middle sm:h-screen"
             aria-hidden="true"
